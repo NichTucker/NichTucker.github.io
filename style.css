@@ -1,194 +1,222 @@
-body{
-font-family: Arial, Helvetica, sans-serif;
-margin:0;
-background:#f5f7fa;
-color:#1f2937;
+/* Reset */
+* {
+  box-sizing: border-box;
 }
 
-.container{
-width:90%;
-max-width:1000px;
-margin:auto;
+/* Base */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fa;
+  color: #1f2937;
 }
 
-header{
-background:#0f172a;
-color:white;
-padding:15px 0;
-}
-
-.nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo{
-font-weight:bold;
-font-size:18px;
-}
-
-.nav-links a{
-color:white;
-margin-left:15px;
-text-decoration:none;
-padding:8px 12px;
-border-radius:8px;
-transition:background 0.2s ease;
-}
-
-.nav-links a:hover{
-background:rgba(255,255,255,0.15);
-}
-
-.nav-links a.active{
-background:white;
-color:#0f172a;
-}
-
-.hero{
-padding:60px 0;
-}
-
-.card-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.card{
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 3px 10px rgba(0,0,0,0.08);
-}
-
-.project-item{
-background:white;
-padding:20px;
-margin-bottom:20px;
-border-radius:10px;
-box-shadow:0 3px 10px rgba(0,0,0,0.08);
-}
-
-.resume-box{
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 3px 10px rgba(0,0,0,0.08);
-}
-
-.btn{
-padding:10px 18px;
-border-radius:6px;
-border:2px solid #0f4c81;
-margin-right:10px;
-display:inline-block;
-text-decoration:none;
-}
-
-.btn-primary{
-background:#0f4c81;
-color:white;
-}
-
-.btn-secondary{
-color:#0f4c81;
-}
-
-footer{
-background:#0f172a;
-color:white;
-text-align:center;
-padding:20px 0;
-margin-top:40px;
-}
-
-
-* {box-sizing:border-box}
-
-/* Slideshow container */
-.slideshow-container {
+.container {
+  width: 90%;
   max-width: 1000px;
-  position: relative;
-  margin: auto;
+  margin: 0 auto;
 }
 
-/* Hide the images by default */
+/* Header / Navigation */
+header {
+  background: #0f172a;
+  color: white;
+  padding: 15px 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-links a.active {
+  background: white;
+  color: #0f172a;
+}
+
+/* Hero */
+.hero {
+  padding: 60px 0;
+}
+
+/* Cards / Content Blocks */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card,
+.project-item,
+.resume-box {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.card,
+.project-item {
+  padding: 20px;
+}
+
+.project-item {
+  margin-bottom: 20px;
+}
+
+.resume-box {
+  padding: 25px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  margin-right: 10px;
+  border: 2px solid #0f4c81;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: #0f4c81;
+  color: white;
+}
+
+.btn-secondary {
+  color: #0f4c81;
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  padding: 20px 0;
+  background: #0f172a;
+  color: white;
+  text-align: center;
+}
+
+/* Slideshow */
+.slideshow-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .mySlides {
   display: none;
 }
 
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
+.prev,
+.next {
   position: absolute;
   top: 50%;
   width: auto;
-  margin-top: -22px;
   padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
+  margin-top: -22px;
+  cursor: pointer;
   user-select: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 0 3px 3px 0;
+  transition: background-color 0.3s ease;
 }
 
-/* Position the "next button" to the right */
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Caption text */
 .text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
   position: absolute;
   bottom: 8px;
   width: 100%;
+  padding: 8px 12px;
+  color: #f2f2f2;
+  font-size: 15px;
   text-align: center;
 }
 
-/* Number text (1/3 etc) */
 .numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
   position: absolute;
   top: 0;
+  padding: 8px 12px;
+  color: #f2f2f2;
+  font-size: 12px;
 }
 
-/* The dots/bullets/indicators */
 .dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
   display: inline-block;
-  transition: background-color 0.6s ease;
+  width: 15px;
+  height: 15px;
+  margin: 0 2px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #bbb;
+  transition: background-color 0.3s ease;
 }
 
-.active, .dot:hover {
+.dot:hover,
+.dot.active-dot {
   background-color: #717171;
 }
 
-/* Fading animation */
 .fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
+  animation: fade 1.5s;
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    gap: 6px;
+  }
+
+  .hero {
+    padding: 40px 0;
+  }
 }
