@@ -1,282 +1,3 @@
-/* Reset */
-* {
-  box-sizing: border-box;
-}
-
-/* Base */
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f5f7fa;
-  color: #1f2937;
-}
-
-.container {
-  width: 90%;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-/* Header / Navigation */
-header {
-  background: #0f172a;
-  color: white;
-  padding: 15px 0;
-}
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.logo {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-.nav-links a:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.nav-links a.active {
-  background: white;
-  color: #0f172a;
-}
-
-/* Hero */
-.hero {
-  padding: 60px 0;
-}
-
-/* Cards / Content Blocks */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.card,
-.project-item,
-.resume-box {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-}
-
-.card,
-.project-item {
-  padding: 20px;
-}
-
-.project-item {
-  margin-bottom: 20px;
-}
-
-.resume-box {
-  padding: 25px;
-}
-
-/* Buttons */
-.btn {
-  display: inline-block;
-  padding: 10px 18px;
-  margin-right: 10px;
-  border: 2px solid #0f4c81;
-  border-radius: 6px;
-  text-decoration: none;
-}
-
-.btn-primary {
-  background: #0f4c81;
-  color: white;
-}
-
-.btn-secondary {
-  color: #0f4c81;
-}
-
-/* Footer */
-footer {
-  margin-top: 40px;
-  padding: 20px 0;
-  background: #0f172a;
-  color: white;
-  text-align: center;
-}
-
-/* Slideshow */
-.slideshow-container {
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.mySlides {
-  display: none;
-}
-
-.prev,
-.next {
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  cursor: pointer;
-  user-select: none;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  border-radius: 0 3px 3px 0;
-  transition: background-color 0.3s ease;
-}
-
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.text {
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  padding: 8px 12px;
-  color: #f2f2f2;
-  font-size: 15px;
-  text-align: center;
-}
-
-.numbertext {
-  position: absolute;
-  top: 0;
-  padding: 8px 12px;
-  color: #f2f2f2;
-  font-size: 12px;
-}
-
-.dot {
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  margin: 0 2px;
-  cursor: pointer;
-  border-radius: 50%;
-  background-color: #bbb;
-  transition: background-color 0.3s ease;
-}
-
-.dot:hover,
-.dot.active-dot {
-  background-color: #717171;
-}
-
-.fade {
-  animation: fade 1.5s;
-}
-
-@keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Responsive */
-@media (max-width: 700px) {
-  .nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav-links {
-    gap: 6px;
-  }
-
-  .hero {
-    padding: 40px 0;
-  }
-}
-
-/* Projects Page */
-
-.projects-title {
-  text-align: center;
-  font-size: 48px;
-  font-weight: 800;
-  margin: 60px 0 40px;
-  letter-spacing: 2px;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-/* Project card */
-
-.project-card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-.project-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.project-card h3 {
-  padding: 15px;
-  font-size: 16px;
-  line-height: 1.4;
-}
-
-/* Responsive */
-
-@media (max-width: 900px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 .projects-page {
   padding-bottom: 40px;
 }
@@ -341,7 +62,7 @@ footer {
 
 .modal-content {
   background: white;
-  width: min(1000px, 100%);
+  width: min(1150px, 100%);
   max-height: 90vh;
   overflow-y: auto;
   border-radius: 14px;
@@ -361,39 +82,91 @@ footer {
   color: #1f2937;
 }
 
-.modal-content h2 {
+#modalBody {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 32px;
+  align-items: start;
+}
+
+.modal-main h2 {
   margin-top: 0;
   margin-bottom: 16px;
 }
 
-.modal-content p {
-  line-height: 1.7;
-  margin-bottom: 24px;
+.modal-main h3 {
+  margin-top: 28px;
+  margin-bottom: 10px;
 }
 
-.modal-images {
+.modal-main p {
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.modal-feature-image {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.modal-image-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 16px;
+  margin: 20px 0;
 }
 
-.modal-images img {
+.modal-image-grid img {
   width: 100%;
-  border-radius: 10px;
   display: block;
+  border-radius: 10px;
 }
 
-@media (max-width: 900px) {
+.modal-sidebar {
+  border-left: 1px solid #e5e7eb;
+  padding-left: 24px;
+}
+
+.modal-sidebar h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.modal-sidebar ul {
+  margin-top: 0;
+  margin-bottom: 24px;
+  padding-left: 18px;
+}
+
+.modal-sidebar li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.project-templates {
+  display: none;
+}
+
+@media (max-width: 1000px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .modal-images {
+  #modalBody {
     grid-template-columns: 1fr;
+  }
+
+  .modal-sidebar {
+    border-left: none;
+    border-top: 1px solid #e5e7eb;
+    padding-left: 0;
+    padding-top: 20px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .projects-grid {
     grid-template-columns: 1fr;
   }
@@ -408,5 +181,9 @@ footer {
 
   .modal-content {
     padding: 20px;
+  }
+
+  .modal-image-grid {
+    grid-template-columns: 1fr;
   }
 }

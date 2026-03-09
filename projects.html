@@ -30,63 +30,33 @@
     <section class="container">
       <div class="projects-grid">
 
-        <div class="project-card"
-             onclick="openProject(
-               'Nocturnal Wildlife Classification via Point Clouds',
-               'Built a LiDAR-based wildlife classification pipeline using clustering, tracking, and deep learning. This project focused on detecting and classifying nocturnal wildlife from point-cloud data and achieved strong end-to-end performance.',
-               ['images/NAC/5 objects close 1 with arrows.png', 'images/NAC/5 objects close 1 with arrows.png', 'images/NAC/5 objects close 1 with arrows.png']
-             )">
-          <img src="images/NAC/5 objects close 1 with arrows.png" alt="Nocturnal Wildlife Classification project">
+        <div class="project-card" onclick="openProject('project-nac')">
+          <img src="images/NAC/5 objects close 1 with arrows.png" alt="Nocturnal Wildlife Classification">
           <h3>Nocturnal Wildlife Classification via Point Clouds</h3>
         </div>
 
-        <div class="project-card"
-             onclick="openProject(
-               'Honey Badger Detection Subsystem',
-               'Developed a detection subsystem integrating image capture, ML inference, user interface feedback, and deterrent hardware control. The goal was to create a reliable field-ready detection and response pipeline.',
-               ['images/HBD/Detection Hardware.jpg', 'images/HBD/Detection Hardware.jpg', 'images/HBD/Detection Hardware.jpg']
-             )">
-          <img src="images/HBD/Detection Hardware.jpg" alt="Honey Badger Detection project">
+        <div class="project-card" onclick="openProject('project-hbd')">
+          <img src="images/HBD/Detection Hardware.jpg" alt="Honey Badger Detection">
           <h3>Honey Badger Detection Subsystem</h3>
         </div>
 
-        <div class="project-card"
-             onclick="openProject(
-               'Micromouse Maze Solver',
-               'Designed and programmed an autonomous micro-robot to explore and solve a maze using MATLAB Simulink. This project involved sensing, decision-making, and constrained embedded implementation.',
-               ['images/MM/3D viewer.png', 'images/MM/3D viewer.png', 'images/MM/3D viewer.png']
-             )">
-          <img src="images/MM/3D viewer.png" alt="Micromouse Maze Solver project">
+        <div class="project-card" onclick="openProject('project-mm')">
+          <img src="images/MM/3D viewer.png" alt="Micromouse Maze Solver">
           <h3>Micromouse Maze Solver</h3>
         </div>
 
-        <div class="project-card"
-             onclick="openProject(
-               'Java Productivity Calendar',
-               'Built a personalized calendar application that integrated APIs and scheduling tools to support time management and academic planning.',
-               ['images/calendar.jpg']
-             )">
-          <img src="images/calendar.jpg" alt="Java Productivity Calendar project">
+        <div class="project-card" onclick="openProject('project-calendar')">
+          <img src="images/calendar.jpg" alt="Java Productivity Calendar">
           <h3>Java Productivity Calendar</h3>
         </div>
 
-        <div class="project-card"
-             onclick="openProject(
-               'Music Recommendation Engine',
-               'Ongoing project exploring clustering, user preference modelling, and natural language processing to create a personalized recommendation engine.',
-               ['images/music.jpg']
-             )">
-          <img src="images/music.jpg" alt="Music Recommendation Engine project">
+        <div class="project-card" onclick="openProject('project-music')">
+          <img src="images/music.jpg" alt="Music Recommendation Engine">
           <h3>Music Recommendation Engine</h3>
         </div>
 
-        <div class="project-card"
-             onclick="openProject(
-               'PLC and Machinery Engineering Work',
-               'Internship work involving machinery component modelling, PLC programming, and practical electrical and mechanical engineering implementation.',
-               ['images/plc.jpg']
-             )">
-          <img src="images/plc.jpg" alt="PLC and machinery project">
+        <div class="project-card" onclick="openProject('project-plc')">
+          <img src="images/plc.jpg" alt="PLC and Machinery Work">
           <h3>PLC and Machinery Engineering Work</h3>
         </div>
 
@@ -94,13 +64,183 @@
     </section>
   </main>
 
+  <!-- Modal -->
   <div id="projectModal" class="modal" onclick="closeProject(event)">
-    <div class="modal-content" onclick="event.stopPropagation()">
+    <div class="modal-content modal-layout" onclick="event.stopPropagation()">
       <button class="modal-close" onclick="closeProject()">&times;</button>
-      <h2 id="modalTitle"></h2>
-      <p id="modalDescription"></p>
-      <div id="modalImages" class="modal-images"></div>
+      <div id="modalBody"></div>
     </div>
+  </div>
+
+  <!-- Hidden project templates -->
+  <div class="project-templates">
+
+    <div id="project-nac" class="project-template">
+      <div class="modal-main">
+        <h2>Nocturnal Wildlife Classification via Point Clouds</h2>
+        <p>
+          This project focused on building an end-to-end LiDAR pipeline for nocturnal wildlife detection
+          and classification. The workflow included segmentation, clustering, tracking, preprocessing,
+          and DGCNN-based classification.
+        </p>
+
+        <img src="images/NAC/5 objects close 1 with arrows.png" alt="Wildlife project main image" class="modal-feature-image">
+
+        <p>
+          The goal was to create a reliable classification system that could operate on point-cloud data
+          under real-world field conditions. A major focus was balancing classification performance with
+          robustness across noisy and incomplete detections.
+        </p>
+
+        <div class="modal-image-grid">
+          <img src="images/NAC/5 objects close 1 with arrows.png" alt="Wildlife image 1">
+          <img src="images/NAC/5 objects close 1 with arrows.png" alt="Wildlife image 2">
+        </div>
+
+        <h3>Results</h3>
+        <p>
+          The system achieved strong classification accuracy on clean ground-truth crops and solid
+          end-to-end performance once integrated into the full detection and tracking pipeline.
+        </p>
+      </div>
+
+      <aside class="modal-sidebar">
+        <h3>Skills Acquired</h3>
+        <ul>
+          <li>Point-cloud preprocessing</li>
+          <li>Object clustering and tracking</li>
+          <li>Deep learning workflows</li>
+          <li>Data pipeline design</li>
+          <li>Model evaluation</li>
+          <li>Performance analysis</li>
+        </ul>
+
+        <h3>Tools</h3>
+        <ul>
+          <li>Python</li>
+          <li>LiDAR data</li>
+          <li>DGCNN</li>
+          <li>NumPy / ML tooling</li>
+        </ul>
+      </aside>
+    </div>
+
+    <div id="project-hbd" class="project-template">
+      <div class="modal-main">
+        <h2>Honey Badger Detection Subsystem</h2>
+        <p>
+          This subsystem connected image capture, machine learning inference, user interface updates,
+          and hardware deterrent control into one practical workflow.
+        </p>
+
+        <img src="images/HBD/Detection Hardware.jpg" alt="Honey badger system hardware" class="modal-feature-image">
+
+        <p>
+          The objective was to support reliable field operation by linking software detections with a
+          physical response mechanism and clear user feedback.
+        </p>
+
+        <div class="modal-image-grid">
+          <img src="images/HBD/Detection Hardware.jpg" alt="Hardware image">
+          <img src="images/HBD/Detection Hardware.jpg" alt="System image">
+        </div>
+      </div>
+
+      <aside class="modal-sidebar">
+        <h3>Skills Acquired</h3>
+        <ul>
+          <li>System integration</li>
+          <li>Embedded hardware interfacing</li>
+          <li>ML API integration</li>
+          <li>UI feedback design</li>
+          <li>Testing and debugging</li>
+        </ul>
+
+        <h3>Tools</h3>
+        <ul>
+          <li>Python</li>
+          <li>Embedded hardware</li>
+          <li>Detection pipeline</li>
+        </ul>
+      </aside>
+    </div>
+
+    <div id="project-mm" class="project-template">
+      <div class="modal-main">
+        <h2>Micromouse Maze Solver</h2>
+        <p>
+          Designed and programmed an autonomous micro-robot capable of exploring and solving a maze.
+          The project required integrating sensing, control logic, and constrained physical design.
+        </p>
+
+        <img src="images/MM/3D viewer.png" alt="Micromouse render" class="modal-feature-image">
+
+        <p>
+          A key challenge was developing reliable behavior under limited hardware and budget constraints
+          while still achieving robust navigation performance.
+        </p>
+      </div>
+
+      <aside class="modal-sidebar">
+        <h3>Skills Acquired</h3>
+        <ul>
+          <li>Control logic</li>
+          <li>Robot navigation</li>
+          <li>Simulation</li>
+          <li>Embedded thinking</li>
+          <li>Design under constraints</li>
+        </ul>
+
+        <h3>Tools</h3>
+        <ul>
+          <li>MATLAB Simulink</li>
+          <li>Micro-robotics</li>
+        </ul>
+      </aside>
+    </div>
+
+    <div id="project-calendar" class="project-template">
+      <div class="modal-main">
+        <h2>Java Productivity Calendar</h2>
+        <p>Add your custom text and images here.</p>
+      </div>
+      <aside class="modal-sidebar">
+        <h3>Skills Acquired</h3>
+        <ul>
+          <li>Java development</li>
+          <li>API integration</li>
+        </ul>
+      </aside>
+    </div>
+
+    <div id="project-music" class="project-template">
+      <div class="modal-main">
+        <h2>Music Recommendation Engine</h2>
+        <p>Add your custom text and images here.</p>
+      </div>
+      <aside class="modal-sidebar">
+        <h3>Skills Acquired</h3>
+        <ul>
+          <li>Recommendation systems</li>
+          <li>NLP</li>
+        </ul>
+      </aside>
+    </div>
+
+    <div id="project-plc" class="project-template">
+      <div class="modal-main">
+        <h2>PLC and Machinery Engineering Work</h2>
+        <p>Add your custom text and images here.</p>
+      </div>
+      <aside class="modal-sidebar">
+        <h3>Skills Acquired</h3>
+        <ul>
+          <li>PLC programming</li>
+          <li>Mechanical implementation</li>
+        </ul>
+      </aside>
+    </div>
+
   </div>
 
   <footer>
@@ -110,20 +250,11 @@
   </footer>
 
   <script>
-    function openProject(title, description, images) {
-      document.getElementById("modalTitle").textContent = title;
-      document.getElementById("modalDescription").textContent = description;
+    function openProject(projectId) {
+      const template = document.getElementById(projectId);
+      const modalBody = document.getElementById("modalBody");
 
-      const modalImages = document.getElementById("modalImages");
-      modalImages.innerHTML = "";
-
-      images.forEach(src => {
-        const img = document.createElement("img");
-        img.src = src;
-        img.alt = title;
-        modalImages.appendChild(img);
-      });
-
+      modalBody.innerHTML = template.innerHTML;
       document.getElementById("projectModal").style.display = "flex";
       document.body.style.overflow = "hidden";
     }
