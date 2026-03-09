@@ -28,49 +28,120 @@
     </section>
 
     <section class="container">
+      <div class="projects-grid">
 
-<div class="projects-grid">
+        <div class="project-card"
+             onclick="openProject(
+               'Nocturnal Wildlife Classification via Point Clouds',
+               'Built a LiDAR-based wildlife classification pipeline using clustering, tracking, and deep learning. This project focused on detecting and classifying nocturnal wildlife from point-cloud data and achieved strong end-to-end performance.',
+               ['images/NAC/5 objects close 1 with arrows.png', 'images/NAC/5 objects close 1 with arrows.png', 'images/NAC/5 objects close 1 with arrows.png']
+             )">
+          <img src="images/NAC/5 objects close 1 with arrows.png" alt="Nocturnal Wildlife Classification project">
+          <h3>Nocturnal Wildlife Classification via Point Clouds</h3>
+        </div>
 
-<div class="project-card">
-<img src="images/NAC/5 objects close 1 with arrows.png">
-<h3>Nocturnal Wildlife Classification via Point Clouds</h3>
-</div>
+        <div class="project-card"
+             onclick="openProject(
+               'Honey Badger Detection Subsystem',
+               'Developed a detection subsystem integrating image capture, ML inference, user interface feedback, and deterrent hardware control. The goal was to create a reliable field-ready detection and response pipeline.',
+               ['images/HBD/Detection Hardware.jpg', 'images/HBD/Detection Hardware.jpg', 'images/HBD/Detection Hardware.jpg']
+             )">
+          <img src="images/HBD/Detection Hardware.jpg" alt="Honey Badger Detection project">
+          <h3>Honey Badger Detection Subsystem</h3>
+        </div>
 
-<div class="project-card">
-<img src="images/HBD/Detection Hardware.jpg">
-<h3>Honey Badger Detection Subsystem</h3>
-</div>
+        <div class="project-card"
+             onclick="openProject(
+               'Micromouse Maze Solver',
+               'Designed and programmed an autonomous micro-robot to explore and solve a maze using MATLAB Simulink. This project involved sensing, decision-making, and constrained embedded implementation.',
+               ['images/MM/3D viewer.png', 'images/MM/3D viewer.png', 'images/MM/3D viewer.png']
+             )">
+          <img src="images/MM/3D viewer.png" alt="Micromouse Maze Solver project">
+          <h3>Micromouse Maze Solver</h3>
+        </div>
 
-<div class="project-card">
-<img src="images/MM/3D viewer.png">
-<h3>Micromouse Maze Solver</h3>
-</div>
+        <div class="project-card"
+             onclick="openProject(
+               'Java Productivity Calendar',
+               'Built a personalized calendar application that integrated APIs and scheduling tools to support time management and academic planning.',
+               ['images/calendar.jpg']
+             )">
+          <img src="images/calendar.jpg" alt="Java Productivity Calendar project">
+          <h3>Java Productivity Calendar</h3>
+        </div>
 
-<div class="project-card">
-<img src="images/calendar.jpg">
-<h3>Java Productivity Calendar</h3>
-</div>
+        <div class="project-card"
+             onclick="openProject(
+               'Music Recommendation Engine',
+               'Ongoing project exploring clustering, user preference modelling, and natural language processing to create a personalized recommendation engine.',
+               ['images/music.jpg']
+             )">
+          <img src="images/music.jpg" alt="Music Recommendation Engine project">
+          <h3>Music Recommendation Engine</h3>
+        </div>
 
-<div class="project-card">
-<img src="images/music.jpg">
-<h3>Music Recommendation Engine</h3>
-</div>
+        <div class="project-card"
+             onclick="openProject(
+               'PLC and Machinery Engineering Work',
+               'Internship work involving machinery component modelling, PLC programming, and practical electrical and mechanical engineering implementation.',
+               ['images/plc.jpg']
+             )">
+          <img src="images/plc.jpg" alt="PLC and machinery project">
+          <h3>PLC and Machinery Engineering Work</h3>
+        </div>
 
-<div class="project-card">
-<img src="images/plc.jpg">
-<h3>PLC and Machinery Engineering Work</h3>
-</div>
-
-</div>
-
-</section>
+      </div>
+    </section>
   </main>
+
+  <div id="projectModal" class="modal" onclick="closeProject(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeProject()">&times;</button>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+      <div id="modalImages" class="modal-images"></div>
+    </div>
+  </div>
 
   <footer>
     <div class="container">
       <p>© 2026 Nicholas Tucker</p>
     </div>
   </footer>
+
+  <script>
+    function openProject(title, description, images) {
+      document.getElementById("modalTitle").textContent = title;
+      document.getElementById("modalDescription").textContent = description;
+
+      const modalImages = document.getElementById("modalImages");
+      modalImages.innerHTML = "";
+
+      images.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = title;
+        modalImages.appendChild(img);
+      });
+
+      document.getElementById("projectModal").style.display = "flex";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeProject(event) {
+      if (!event || event.target.id === "projectModal") {
+        document.getElementById("projectModal").style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    }
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        document.getElementById("projectModal").style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    });
+  </script>
 
 </body>
 </html>
