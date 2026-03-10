@@ -9,24 +9,28 @@
 
 <body>
 
-  <header>
-    <div class="container nav">
-      <div class="logo">Nicholas Tucker</div>
-      <nav class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="resume.html">Resume</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+<!-- Background Image -->
+<div class="hero-background"></div>
+
+<header>
+  <div class="container nav">
+    <div class="logo">Nicholas Tucker</div>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
 <section class="hero container">
 
 <h1>Engineering Portfolio</h1>
 
 <p>
-*** SUMMARY - 2 or 3 short sentences about me. ***
+Mechatronics Engineering graduate focused on intelligent systems,
+robotics, machine learning, and building practical engineering solutions.
 </p>
 
 <div>
@@ -36,11 +40,38 @@
 
 </section>
 
+<section class="container intro-section">
+
+<h2>About</h2>
+
+<p>
+I am a mechatronics engineer with interests in robotics, machine learning,
+and embedded systems. My work focuses on building intelligent systems
+that operate reliably in real-world environments.
+</p>
+
+</section>
+
 <footer>
 <div class="container">
 <p>© 2026 Nicholas Tucker</p>
 </div>
 </footer>
+
+<script>
+
+const bg = document.querySelector(".hero-background");
+
+window.addEventListener("scroll", () => {
+
+  const scroll = window.scrollY;
+  const opacity = 1 - scroll / 500;
+
+  bg.style.opacity = opacity;
+
+});
+
+</script>
 
 </body>
 </html>
