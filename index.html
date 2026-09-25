@@ -3,127 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nicholas Tucker | Mechatronics Engineer</title>
-<meta
-       name="description"
-       content="Engineering portfolio of Nicholas Tucker — Mechatronics Engineer working across robotics, intelligent systems, machine learning and semiconductor equipment."
->
+<title>Engineering Portfolio | Nicholas Tucker</title>
 <link rel="stylesheet" href="style.css">
 </head>
+ 
 <body>
-<!-- Background -->
+ 
+<!-- Background Image -->
 <div class="hero-background"></div>
-<div class="background-overlay"></div>
-<!-- Navigation -->
-<header class="site-header">
-<div class="container nav">
-<a href="index.html" class="logo">
-               Nicholas Tucker
-</a>
-<nav class="nav-links" aria-label="Main navigation">
-<a href="index.html" class="active">Home</a>
-<a href="projects.html">Projects</a>
-<a href="resume.html">Resume</a>
-<a href="contact.html">Contact</a>
-</nav>
-</div>
+ 
+<header>
+  <div class="container nav">
+    <div class="logo">Nicholas Tucker</div>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
-
-<main>
-<!-- Hero -->
+ 
 <section class="hero container">
-<div class="hero-content">
-<p class="eyebrow">
-                   MECHATRONICS ENGINEER
-</p>
-<h1>
-                   Engineering systems that
-<span>work in the real world.</span>
-</h1>
-<p class="hero-description">
-                   I work across mechanical systems, electronics, software,
-                   controls and machine learning — turning complex engineering
-                   problems into practical solutions.
-</p>
-<div class="hero-actions">
-<a class="btn btn-primary" href="projects.html">
-                       Explore my work
-<span aria-hidden="true">→</span>
-</a>
-<a class="btn btn-secondary" href="resume.html">
-                       View résumé
-</a>
-</div>
-</div>
-<!-- Engineering areas -->
-<div class="engineering-areas">
-<div class="area">
-<span class="area-number">01</span>
-<span>Mechatronics</span>
-</div>
-<div class="area">
-<span class="area-number">02</span>
-<span>Robotics & Control</span>
-</div>
-<div class="area">
-<span class="area-number">03</span>
-<span>Machine Learning</span>
-</div>
-<div class="area">
-<span class="area-number">04</span>
-<span>Semiconductor Systems</span>
-</div>
-</div>
-</section>
-
-<!-- About -->
-<section class="about-section">
-<div class="container about-grid">
-<div class="section-heading">
-<p class="eyebrow">ABOUT</p>
-<h2>Engineer by training.<br>Problem solver by nature.</h2>
-</div>
-<div class="about-content">
-<p class="about-lead">
-                       I'm a Mechatronics Engineering graduate interested in
-                       the point where software meets physical systems.
-</p>
+ 
+<h1>Engineering Portfolio</h1>
+ 
 <p>
-                       My experience spans robotics, embedded systems,
-                       machine learning and semiconductor equipment. I enjoy
-                       understanding complex systems from first principles,
-                       diagnosing why they fail, and designing better ways
-                       for them to work.
+Mechatronics Engineering graduate focused on intelligent systems,
+robotics, machine learning, and building practical engineering solutions.
 </p>
-<a href="projects.html" class="text-link">
-                       See what I've built <span>→</span>
-</a>
+ 
+<div>
+<a class="btn btn-primary" href="projects.html">View Projects</a>
+<a class="btn btn-secondary" href="contact.html">Contact Me</a>
 </div>
-</div>
+ 
 </section>
-</main>
-
-<!-- Footer -->
-<footer class="site-footer">
-<div class="container footer-content">
-<p>© 2026 Nicholas Tucker</p>
-<p class="footer-tagline">
-               Mechatronics · Robotics · Intelligent Systems
+ 
+<section class="container intro-section">
+ 
+<h2>About</h2>
+ 
+<p>
+I am a mechatronics engineer with interests in robotics, machine learning,
+and embedded systems. My work focuses on building intelligent systems
+that operate reliably in real-world environments.
 </p>
+ 
+</section>
+ 
+<footer>
+<div class="container">
+<p>© 2026 Nicholas Tucker</p>
 </div>
 </footer>
-
+ 
 <script>
-       const bg = document.querySelector(".hero-background");
-       const overlay = document.querySelector(".background-overlay");
-       window.addEventListener("scroll", () => {
-           const scroll = window.scrollY;
-           const opacity = Math.max(0, 1 - scroll / 650);
-           bg.style.opacity = opacity;
-           if (overlay) {
-               overlay.style.opacity = opacity;
-           }
-       });
+ 
+const bg = document.querySelector(".hero-background");
+ 
+window.addEventListener("scroll", () => {
+ 
+  const scroll = window.scrollY;
+  const opacity = 1 - scroll / 500;
+ 
+  bg.style.opacity = opacity;
+ 
+});
+ 
 </script>
+ 
 </body>
 </html>
