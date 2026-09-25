@@ -629,7 +629,7 @@ footer {
 
 .hero {
 
-  height: 80vh;
+  height: auto;
 
   display: flex;
   flex-direction: column;
@@ -658,8 +658,6 @@ footer {
 /* Section after hero */
 
 .intro-section {
-
-  background: #f5f7fa;
   padding: 80px 0;
   margin-top: 20vh;
 
