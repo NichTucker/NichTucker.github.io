@@ -1,221 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects | Nicholas Tucker</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Selected engineering projects by Nicholas Tucker."><title>Projects — Nicholas Tucker</title><link rel="stylesheet" href="style.css"></head>
 <body>
-
-  <header>
-    <div class="container nav">
-      <div class="logo">Nicholas Tucker</div>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="projects.html" class="active">Projects</a>
-        <a href="resume.html">Resume</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+  <header class="site-header"><a class="site-brand" href="index.html">Nicholas Tucker <span>— Mechatronics Engineer</span></a><button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span></button><nav class="site-menu" id="site-menu" aria-label="Main navigation"><a href="index.html">Home</a><a href="projects.html" aria-current="page">Projects</a><a href="resume.html">Resume</a><a href="contact.html">Contact</a></nav></header>
+  <main class="interior content-width projects-page"><div class="page-intro"><p class="eyebrow">Selected work</p><h1>Projects<span class="period">.</span></h1><p>A closer look at the systems, experiments and engineering questions behind my work.</p></div>
+    <div class="projects-grid">
+      <button class="project-card" type="button" data-project="project-nac" aria-haspopup="dialog"><span class="project-card__image"><img src="images/NAC/5 objects close 1 with arrows.png" alt="Annotated LiDAR detections" loading="lazy"></span><span class="project-card__meta">01 / Perception & machine learning</span><span class="project-card__title">LiDAR-Based Animal Recognition <span aria-hidden="true">↗</span></span></button>
+      <button class="project-card" type="button" data-project="project-hbd" aria-haspopup="dialog"><span class="project-card__image"><img src="images/HBD/Detection Hardware.jpg" alt="Honey badger detection hardware" loading="lazy"></span><span class="project-card__meta">02 / Embedded system integration</span><span class="project-card__title">Honey Badger Detection Subsystem <span aria-hidden="true">↗</span></span></button>
+      <button class="project-card" type="button" data-project="project-mm" aria-haspopup="dialog"><span class="project-card__image"><img src="images/MM/3D viewer.png" alt="Micromouse robot design" loading="lazy"></span><span class="project-card__meta">03 / Robotics & control</span><span class="project-card__title">Micromouse Maze Solver <span aria-hidden="true">↗</span></span></button>
     </div>
-  </header>
-
-  <main class="projects-page">
-    <section class="projects-hero">
-      <div class="container">
-        <h1>Engineering Projects</h1>
-      </div>
-    </section>
-
-    <section class="container">
-      <div class="projects-grid">
-
-        <div class="project-card" onclick="openProject('project-nac')">
-          <img src="images/NAC/5 objects close 1 with arrows.png" alt="Nocturnal Wildlife Classification">
-          <h3>Nocturnal Wildlife Classification via Point Clouds</h3>
-        </div>
-
-        <div class="project-card" onclick="openProject('project-hbd')">
-          <img src="images/HBD/Detection Hardware.jpg" alt="Honey Badger Detection">
-          <h3>Honey Badger Detection Subsystem</h3>
-        </div>
-
-        <div class="project-card" onclick="openProject('project-mm')">
-          <img src="images/MM/3D viewer.png" alt="Micromouse Maze Solver">
-          <h3>Micromouse Maze Solver</h3>
-        </div>
-
-      </div>
-    </section>
   </main>
 
-  <!-- Modal -->
-  <div id="projectModal" class="modal" onclick="closeProject(event)">
-    <div class="modal-content modal-layout" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeProject()">&times;</button>
-      <div id="modalBody"></div>
-    </div>
+  <div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-label="Project details" aria-hidden="true">
+    <div class="project-modal__panel" tabindex="-1"><button class="project-modal__close" type="button" aria-label="Close project details">×</button><div id="modalBody"></div></div>
   </div>
 
-  <!-- Hidden project templates -->
-  <div class="project-templates">
-
-    <div id="project-nac" class="project-template">
-      <div class="modal-main">
-        <h2>Nocturnal Wildlife Classification via Point Clouds</h2>
-        <p>
-          This project focused on building an end-to-end LiDAR pipeline for nocturnal wildlife detection
-          and classification. The workflow included segmentation, clustering, tracking, preprocessing,
-          and DGCNN-based classification.
-        </p>
-
-        <img src="images/NAC/5 objects close 1 with arrows.png" alt="Wildlife project main image" class="modal-feature-image">
-
-        <p>
-          The goal was to create a reliable classification system that could operate on point-cloud data
-          under real-world field conditions. A major focus was balancing classification performance with
-          robustness across noisy and incomplete detections.
-        </p>
-
-        <div class="modal-image-grid">
-          <img src="images/NAC/5 objects close 1 with arrows.png" alt="Wildlife image 1">
-          <img src="images/NAC/5 objects close 1 with arrows.png" alt="Wildlife image 2">
-        </div>
-
-        <h3>Results</h3>
-        <p>
-          The system achieved strong classification accuracy on clean ground-truth crops and solid
-          end-to-end performance once integrated into the full detection and tracking pipeline.
-        </p>
-      </div>
-
-      <aside class="modal-sidebar">
-        <h3>Skills Acquired</h3>
-        <ul>
-          <li>Point-cloud preprocessing</li>
-          <li>Object clustering and tracking</li>
-          <li>Deep learning workflows</li>
-          <li>Data pipeline design</li>
-          <li>Model evaluation</li>
-          <li>Performance analysis</li>
-        </ul>
-
-        <h3>Tools</h3>
-        <ul>
-          <li>Python</li>
-          <li>LiDAR data</li>
-          <li>DGCNN</li>
-          <li>NumPy / ML tooling</li>
-        </ul>
-      </aside>
-    </div>
-
-    <div id="project-hbd" class="project-template">
-      <div class="modal-main">
-        <h2>Honey Badger Detection Subsystem</h2>
-        <p>
-          This subsystem connected image capture, machine learning inference, user interface updates,
-          and hardware deterrent control into one practical workflow.
-        </p>
-
-        <img src="images/HBD/Detection Hardware.jpg" alt="Honey badger system hardware" class="modal-feature-image">
-
-        <p>
-          The objective was to support reliable field operation by linking software detections with a
-          physical response mechanism and clear user feedback.
-        </p>
-
-        <div class="modal-image-grid">
-          <img src="images/HBD/Detection Hardware.jpg" alt="Hardware image">
-          <img src="images/HBD/Detection Hardware.jpg" alt="System image">
-        </div>
-      </div>
-
-      <aside class="modal-sidebar">
-        <h3>Skills Acquired</h3>
-        <ul>
-          <li>System integration</li>
-          <li>Embedded hardware interfacing</li>
-          <li>ML API integration</li>
-          <li>UI feedback design</li>
-          <li>Testing and debugging</li>
-        </ul>
-
-        <h3>Tools</h3>
-        <ul>
-          <li>Python</li>
-          <li>Embedded hardware</li>
-          <li>Detection pipeline</li>
-        </ul>
-      </aside>
-    </div>
-
-    <div id="project-mm" class="project-template">
-      <div class="modal-main">
-        <h2>Micromouse Maze Solver</h2>
-        <p>
-          Designed and programmed an autonomous micro-robot capable of exploring and solving a maze.
-          The project required integrating sensing, control logic, and constrained physical design.
-        </p>
-
-        <img src="images/MM/3D viewer.png" alt="Micromouse render" class="modal-feature-image">
-
-        <p>
-          A key challenge was developing reliable behavior under limited hardware and budget constraints
-          while still achieving robust navigation performance.
-        </p>
-      </div>
-
-      <aside class="modal-sidebar">
-        <h3>Skills Acquired</h3>
-        <ul>
-          <li>Control logic</li>
-          <li>Robot navigation</li>
-          <li>Simulation</li>
-          <li>Embedded thinking</li>
-          <li>Design under constraints</li>
-        </ul>
-
-        <h3>Tools</h3>
-        <ul>
-          <li>MATLAB Simulink</li>
-          <li>Micro-robotics</li>
-        </ul>
-      </aside>
-    </div>
-
+  <div class="project-templates" hidden>
+    <template id="project-nac"><div class="modal-main"><p class="eyebrow">01 / Perception & machine learning</p><h2>LiDAR-Based Animal Recognition</h2><p class="modal-lede">Joint clustering, tracking and temporal classification from point-cloud signatures.</p><img class="modal-feature-image" src="images/NAC/5 objects close 1 with arrows.png" alt="Annotated objects in a LiDAR scene"><h3>The challenge</h3><p>Recognizing animals from LiDAR point clouds means working with sparse, noisy and sometimes incomplete observations. The project investigated how detections could be associated over time and classified in real-world field conditions.</p><h3>The approach</h3><p>I developed a pipeline that combined object clustering and tracking with point-cloud classification and temporal evidence. A major focus was balancing classification performance with robustness across noisy and incomplete detections.</p><h3>Results</h3><p>The system achieved strong classification accuracy on clean ground-truth crops and solid end-to-end performance once integrated into the full detection and tracking pipeline.</p></div><aside class="modal-sidebar"><h3>Skills acquired</h3><ul><li>Point-cloud preprocessing</li><li>Object clustering and tracking</li><li>Deep learning workflows</li><li>Data pipeline design</li><li>Model evaluation</li><li>Performance analysis</li></ul><h3>Tools</h3><ul><li>Python</li><li>LiDAR data</li><li>DGCNN</li><li>NumPy / ML tooling</li></ul></aside></template>
+    <template id="project-hbd"><div class="modal-main"><p class="eyebrow">02 / Embedded system integration</p><h2>Honey Badger Detection Subsystem</h2><p class="modal-lede">Connecting detection software to a useful physical response.</p><img class="modal-feature-image" src="images/HBD/Detection Hardware.jpg" alt="Honey badger detection system hardware"><h3>The system</h3><p>This subsystem connected image capture, machine learning inference, user interface updates and hardware deterrent control into one practical workflow.</p><p>The objective was to support reliable field operation by linking software detections with a physical response mechanism and clear user feedback.</p></div><aside class="modal-sidebar"><h3>Skills acquired</h3><ul><li>System integration</li><li>Embedded hardware interfacing</li><li>ML API integration</li><li>UI feedback design</li><li>Testing and debugging</li></ul><h3>Tools</h3><ul><li>Python</li><li>Embedded hardware</li><li>Detection pipeline</li></ul></aside></template>
+    <template id="project-mm"><div class="modal-main"><p class="eyebrow">03 / Robotics & control</p><h2>Micromouse Maze Solver</h2><p class="modal-lede">Autonomous navigation in a compact robot.</p><img class="modal-feature-image" src="images/MM/3D viewer.png" alt="Micromouse robot render"><h3>The challenge</h3><p>Designed and programmed an autonomous micro-robot capable of exploring and solving a maze. The project required integrating sensing, control logic and constrained physical design.</p><p>A key challenge was developing reliable behavior under limited hardware and budget constraints while still achieving robust navigation performance.</p></div><aside class="modal-sidebar"><h3>Skills acquired</h3><ul><li>Control logic</li><li>Robot navigation</li><li>Simulation</li><li>Embedded thinking</li><li>Design under constraints</li></ul><h3>Tools</h3><ul><li>MATLAB Simulink</li><li>Micro-robotics</li></ul></aside></template>
   </div>
+  <footer class="site-footer"><div class="content-width"><nav aria-label="Footer navigation"><a href="index.html">Home</a><span>·</span><a href="projects.html">Projects</a><span>·</span><a href="resume.html">Resume</a><span>·</span><a href="contact.html">Contact</a></nav><p>© 2026 Nicholas Tucker</p></div></footer>
+<script>
+const menuButton = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.site-menu');
 
-  <footer>
-    <div class="container">
-      <p>© 2026 Nicholas Tucker</p>
-    </div>
-  </footer>
+function setMenu(open) {
+  document.body.classList.toggle('menu-open', open);
+  menuButton?.setAttribute('aria-expanded', String(open));
+  menuButton?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  if (open) menu?.querySelector('a')?.focus();
+  else menuButton?.focus();
+}
 
-  <script>
-    function openProject(projectId) {
-      const template = document.getElementById(projectId);
-      const modalBody = document.getElementById("modalBody");
+menuButton?.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+menu?.addEventListener('click', event => { if (event.target.closest('a')) setMenu(false); });
 
-      modalBody.innerHTML = template.innerHTML;
-      document.getElementById("projectModal").style.display = "flex";
-      document.body.style.overflow = "hidden";
-    }
+const modal = document.getElementById('projectModal');
+const modalPanel = modal?.querySelector('.project-modal__panel');
+let opener = null;
 
-    function closeProject(event) {
-      if (!event || event.target.id === "projectModal") {
-        document.getElementById("projectModal").style.display = "none";
-        document.body.style.overflow = "auto";
-      }
-    }
+function closeProject() {
+  if (!modal || modal.getAttribute('aria-hidden') === 'true') return;
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
+  document.getElementById('modalBody').replaceChildren();
+  opener?.focus();
+}
 
-    document.addEventListener("keydown", function(event) {
-      if (event.key === "Escape") {
-        document.getElementById("projectModal").style.display = "none";
-        document.body.style.overflow = "auto";
-      }
-    });
-  </script>
+document.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => {
+  const template = document.getElementById(button.dataset.project);
+  if (!template || !modal) return;
+  opener = button;
+  document.getElementById('modalBody').replaceChildren(template.content.cloneNode(true));
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
+  modalPanel.focus();
+}));
 
+modal?.querySelector('.project-modal__close')?.addEventListener('click', closeProject);
+modal?.addEventListener('click', event => { if (event.target === modal) closeProject(); });
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    if (modal?.getAttribute('aria-hidden') === 'false') closeProject();
+    else if (document.body.classList.contains('menu-open')) setMenu(false);
+  }
+  if (event.key === 'Tab' && modal?.getAttribute('aria-hidden') === 'false') {
+    const focusable = [...modal.querySelectorAll('a[href], button:not([disabled]), [tabindex="0"]')];
+    if (!focusable.length) return;
+    const first = focusable[0], last = focusable.at(-1);
+    if (event.shiftKey && (document.activeElement === first || document.activeElement === modalPanel)) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  }
+});
+</script>
 </body>
 </html>

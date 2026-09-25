@@ -1,77 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Engineering Portfolio | Nicholas Tucker</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nicholas Tucker is a mechatronics engineer working across semiconductor equipment, intelligent systems and robotics.">
+  <title>Nicholas Tucker — Mechatronics Engineer</title>
+  <link rel="stylesheet" href="style.css">
+  
 </head>
- 
-<body>
- 
-<!-- Background Image -->
-<div class="hero-background"></div>
- 
-<header>
-  <div class="container nav">
-    <div class="logo">Nicholas Tucker</div>
-    <nav class="nav-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="resume.html">Resume</a>
-      <a href="contact.html">Contact</a>
+<body class="home-page">
+  <header class="site-header site-header--light">
+    <a class="site-brand" href="index.html">Nicholas Tucker <span>— Mechatronics Engineer</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span></button>
+    <nav class="site-menu" id="site-menu" aria-label="Main navigation">
+      <a href="index.html" aria-current="page">Home</a><a href="projects.html">Projects</a><a href="resume.html">Resume</a><a href="contact.html">Contact</a>
     </nav>
-  </div>
-</header>
- 
-<section class="hero container">
- 
-<h1>Engineering Portfolio</h1>
- 
-<p>
-Mechatronics Engineering graduate focused on intelligent systems,
-robotics, machine learning, and building practical engineering solutions.
-</p>
- 
-<div>
-<a class="btn btn-primary" href="projects.html">View Projects</a>
-<a class="btn btn-secondary" href="contact.html">Contact Me</a>
-</div>
- 
-</section>
- 
-<section class="container intro-section">
- 
-<h2>About</h2>
- 
-<p>
-I am a mechatronics engineer with interests in robotics, machine learning,
-and embedded systems. My work focuses on building intelligent systems
-that operate reliably in real-world environments.
-</p>
- 
-</section>
- 
-<footer>
-<div class="container">
-<p>© 2026 Nicholas Tucker</p>
-</div>
-</footer>
- 
+  </header>
+
+  <main>
+    <section class="home-hero" aria-labelledby="hero-title">
+      <div class="home-hero__image"></div>
+      <div class="home-hero__content">
+        <h1 id="hero-title">Hi, I'm<br>Nicholas Tucker.</h1>
+        <p>Mechatronics engineer bringing together hands-on equipment work, intelligent systems and a curiosity for how machines behave in the real world.</p>
+      </div>
+    </section>
+
+    <section class="story-section content-width" id="about" aria-labelledby="about-title">
+      <div class="story-section__heading">
+        <p class="eyebrow">About me</p>
+        <h2 id="about-title">An engineer<br>in the field.</h2>
+      </div>
+      <div class="story-section__body">
+        <p>I’m a mechatronics engineer from the University of Cape Town, now supporting semiconductor equipment at STMicroelectronics in Catania. My work takes me from mechanical faults and electrical systems to software alarms, commissioning and production recovery.</p>
+        <p>I’m drawn to problems where software meets physical systems. My university projects explored LiDAR perception, autonomous robotics and embedded integration; my current role has taught me to diagnose complex machinery under real production pressure.</p>
+        <a class="text-link" href="projects.html">Explore my projects <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="focus-section content-width" aria-labelledby="focus-title">
+      <div class="section-heading"><p class="eyebrow">What I work on</p><h2 id="focus-title">Engineering, from concept to operation.</h2></div>
+      <div class="focus-grid">
+        <article><span class="focus-number">01</span><h3>Semiconductor equipment</h3><p>Commissioning, fault finding and field support for wet etch systems in a live fab environment.</p></article>
+        <article><span class="focus-number">02</span><h3>Intelligent systems</h3><p>Machine learning and sensor data pipelines designed for noisy, imperfect real-world inputs.</p></article>
+        <article><span class="focus-number">03</span><h3>Mechatronics</h3><p>Control, embedded software and hardware integration that connect a model to a working machine.</p></article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="content-width"><nav aria-label="Footer navigation"><a href="index.html">Home</a><span>·</span><a href="projects.html">Projects</a><span>·</span><a href="resume.html">Resume</a><span>·</span><a href="contact.html">Contact</a></nav><p>© 2026 Nicholas Tucker</p></div></footer>
 <script>
- 
-const bg = document.querySelector(".hero-background");
- 
-window.addEventListener("scroll", () => {
- 
-  const scroll = window.scrollY;
-  const opacity = 1 - scroll / 500;
- 
-  bg.style.opacity = opacity;
- 
+const menuButton = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.site-menu');
+
+function setMenu(open) {
+  document.body.classList.toggle('menu-open', open);
+  menuButton?.setAttribute('aria-expanded', String(open));
+  menuButton?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  if (open) menu?.querySelector('a')?.focus();
+  else menuButton?.focus();
+}
+
+menuButton?.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+menu?.addEventListener('click', event => { if (event.target.closest('a')) setMenu(false); });
+
+const modal = document.getElementById('projectModal');
+const modalPanel = modal?.querySelector('.project-modal__panel');
+let opener = null;
+
+function closeProject() {
+  if (!modal || modal.getAttribute('aria-hidden') === 'true') return;
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
+  document.getElementById('modalBody').replaceChildren();
+  opener?.focus();
+}
+
+document.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => {
+  const template = document.getElementById(button.dataset.project);
+  if (!template || !modal) return;
+  opener = button;
+  document.getElementById('modalBody').replaceChildren(template.content.cloneNode(true));
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
+  modalPanel.focus();
+}));
+
+modal?.querySelector('.project-modal__close')?.addEventListener('click', closeProject);
+modal?.addEventListener('click', event => { if (event.target === modal) closeProject(); });
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    if (modal?.getAttribute('aria-hidden') === 'false') closeProject();
+    else if (document.body.classList.contains('menu-open')) setMenu(false);
+  }
+  if (event.key === 'Tab' && modal?.getAttribute('aria-hidden') === 'false') {
+    const focusable = [...modal.querySelectorAll('a[href], button:not([disabled]), [tabindex="0"]')];
+    if (!focusable.length) return;
+    const first = focusable[0], last = focusable.at(-1);
+    if (event.shiftKey && (document.activeElement === first || document.activeElement === modalPanel)) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  }
 });
- 
 </script>
- 
 </body>
 </html>
